@@ -55,6 +55,11 @@ def build_cpv_embeddings(descriptions: List[str]) -> np.ndarray:
 def extract_mentioned_cpv_codes(tender_text: str, cpv_df: pd.DataFrame) -> List[str]:
     """Extract valid, known CPV codes explicitly mentioned in the tender text."""
     known_codes = set(cpv_df["code"].tolist())
+    explicit = extract_raw_cpv_mentions(tender_text)
+    # One CPV stem maps to one canonical CPV code in standard datasets.
+    stem_to_code = {code.split("-")[0]: code for code in known_codes}
+    explicit.update({stem_to_code[stem] for stem in extract_cpv_stems(tender_text) if stem in stem_to_code})
+    return sorted(code for code in explicit if code in known_codes)
     stem_to_codes: dict[str, List[str]] = {}
     for known_code in known_codes:
         stem = known_code.split("-")[0]
@@ -99,6 +104,9 @@ def extract_mentioned_cpv_codes(tender_text: str, cpv_df: pd.DataFrame) -> List[
 
 def extract_raw_cpv_mentions(tender_text: str) -> set[str]:
     """Extract CPV-like mentions from tender text and normalize to canonical style."""
+    canonical_mentions = set(re.findall(r"\b\d{8}-\d\b", tender_text))
+    compact_mentions = {f"{code[:8]}-{code[8]}" for code in re.findall(r"\b\d{9}\b", tender_text)}
+    return canonical_mentions.union(compact_mentions)
     explicit: set[str] = set()
 
     # Canonical CPV format: 8 digits + '-' + check digit (e.g. 15900000-7)
