@@ -54,6 +54,9 @@ def build_cpv_embeddings(descriptions: List[str]) -> np.ndarray:
 
 def extract_mentioned_cpv_codes(tender_text: str, cpv_df: pd.DataFrame) -> List[str]:
     """Extract valid, known CPV codes explicitly mentioned in the tender text."""
+    known_codes = set(cpv_df["code"].tolist())
+    stem_to_codes: dict[str, List[str]] = {}
+
     """Extract CPV codes explicitly mentioned in the tender text."""
     known_codes = set(cpv_df["code"].tolist())
     stem_to_codes: dict[str, List[str]] = {}
@@ -62,6 +65,8 @@ def extract_mentioned_cpv_codes(tender_text: str, cpv_df: pd.DataFrame) -> List[
         stem_to_codes.setdefault(stem, []).append(code)
 
     explicit = extract_raw_cpv_mentions(tender_text)
+
+    for stem in extract_cpv_stems(tender_text):
     for stem in extract_cpv_stems(tender_text):
     # Match canonical CPV format: 8 digits + '-' + check digit (e.g. 15900000-7)
     explicit = set(re.findall(r"\b\d{8}-\d\b", tender_text))

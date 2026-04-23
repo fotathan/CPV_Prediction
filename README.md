@@ -67,3 +67,4 @@ If codes mentioned in tenders are missing from your CSV, the app will notify you
 
 - First run may take longer while model files are downloaded.
 - For large inputs, consider trimming legal boilerplate before search for better relevance.
+- If you hit an `IndentationError`, ensure your deployed `app.py` exactly matches the latest committed version (merge conflict markers or partial conflict resolutions can break Python indentation).
