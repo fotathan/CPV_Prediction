@@ -56,6 +56,16 @@ def extract_mentioned_cpv_codes(tender_text: str, cpv_df: pd.DataFrame) -> List[
     """Extract valid, known CPV codes explicitly mentioned in the tender text."""
     known_codes = set(cpv_df["code"].tolist())
     stem_to_codes: dict[str, List[str]] = {}
+    for known_code in known_codes:
+        stem = known_code.split("-")[0]
+        if stem not in stem_to_codes:
+            stem_to_codes[stem] = []
+        stem_to_codes[stem].append(known_code)
+
+    explicit = extract_raw_cpv_mentions(tender_text)
+
+    for stem_code in extract_cpv_stems(tender_text):
+        candidates = stem_to_codes.get(stem_code, [])
 
     """Extract CPV codes explicitly mentioned in the tender text."""
     known_codes = set(cpv_df["code"].tolist())
