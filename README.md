@@ -61,7 +61,6 @@ If codes mentioned in tenders are missing from your CSV, the app will notify you
 4. Computes cosine similarity
 5. Prioritizes CPV codes explicitly found in the tender text
 6. Fills remaining slots by cosine-similarity ranking to return top 3 results
-5. Ranks and returns top 3 results
 
 ## Notes
 

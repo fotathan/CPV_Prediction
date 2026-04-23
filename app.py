@@ -9,7 +9,6 @@ import pandas as pd
 import streamlit as st
 from sentence_transformers import SentenceTransformer
 
-
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("tenderalign")
 
@@ -23,7 +22,6 @@ class MatchResult:
 
 @st.cache_resource(show_spinner=False)
 def load_model() -> SentenceTransformer:
-    """Load multilingual embedding model once."""
     return SentenceTransformer("sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2")
 
 
@@ -37,26 +35,13 @@ def load_cpv_data(csv_path: str) -> pd.DataFrame:
     df = df[["code", "description"]].dropna().reset_index(drop=True)
     df["code"] = df["code"].astype(str)
     df["description"] = df["description"].astype(str)
-    required_columns = {"code", "description"}
-    if not required_columns.issubset(df.columns):
-        raise ValueError("CSV must contain columns: code, description")
-
-    df = df[["code", "description"]].dropna().reset_index(drop=True)
-    df["description"] = df["description"].astype(str)
-    df["code"] = df["code"].astype(str)
     return df
 
 
 @st.cache_resource(show_spinner=False)
 def build_cpv_embeddings(descriptions: List[str]) -> np.ndarray:
     model = load_model()
-    return model.encode(
-    embeddings = model.encode(
-        descriptions,
-        convert_to_numpy=True,
-        normalize_embeddings=True,
-        show_progress_bar=False,
-    )
+    return model.encode(descriptions, convert_to_numpy=True, normalize_embeddings=True, show_progress_bar=False)
 
 
 def extract_raw_cpv_mentions(tender_text: str) -> set[str]:
@@ -77,79 +62,6 @@ def extract_mentioned_cpv_codes(tender_text: str, cpv_df: pd.DataFrame) -> List[
     explicit.update({stem_to_code[s] for s in extract_cpv_stems(tender_text) if s in stem_to_code})
 
     return sorted(code for code in explicit if code in known_codes)
-    return embeddings
-
-
-def extract_mentioned_cpv_codes(tender_text: str, cpv_df: pd.DataFrame) -> List[str]:
-    """Extract valid, known CPV codes explicitly mentioned in the tender text."""
-    known_codes = set(cpv_df["code"].tolist())
-    explicit = extract_raw_cpv_mentions(tender_text)
-    # One CPV stem maps to one canonical CPV code in standard datasets.
-    stem_to_code = {code.split("-")[0]: code for code in known_codes}
-    explicit.update({stem_to_code[stem] for stem in extract_cpv_stems(tender_text) if stem in stem_to_code})
-    return sorted(code for code in explicit if code in known_codes)
-    stem_to_codes: dict[str, List[str]] = {}
-    for known_code in known_codes:
-        stem = known_code.split("-")[0]
-        if stem not in stem_to_codes:
-            stem_to_codes[stem] = []
-        stem_to_codes[stem].append(known_code)
-
-    explicit = extract_raw_cpv_mentions(tender_text)
-
-    for stem_code in extract_cpv_stems(tender_text):
-        candidates = stem_to_codes.get(stem_code, [])
-
-    """Extract CPV codes explicitly mentioned in the tender text."""
-    known_codes = set(cpv_df["code"].tolist())
-    stem_to_codes: dict[str, List[str]] = {}
-    for code in known_codes:
-        stem = code.split("-")[0]
-        stem_to_codes.setdefault(stem, []).append(code)
-
-    explicit = extract_raw_cpv_mentions(tender_text)
-
-    for stem in extract_cpv_stems(tender_text):
-    for stem in extract_cpv_stems(tender_text):
-    # Match canonical CPV format: 8 digits + '-' + check digit (e.g. 15900000-7)
-    explicit = set(re.findall(r"\b\d{8}-\d\b", tender_text))
-
-    # Match compact format and normalize to canonical form if it exists in dataset
-    compact = re.findall(r"\b\d{9}\b", tender_text)
-    for code in compact:
-        normalized = f"{code[:8]}-{code[8]}"
-        explicit.add(normalized)
-
-    # Match 8-digit stems only when they map to exactly one known CPV code.
-    # This avoids classifying arbitrary 8-digit values (e.g. IDs/phones) as CPV.
-    for stem in re.findall(r"\b\d{8}\b", tender_text):
-        candidates = stem_to_codes.get(stem, [])
-        if len(candidates) == 1:
-            explicit.add(candidates[0])
-
-    return [code for code in explicit if code in known_codes]
-
-
-def extract_raw_cpv_mentions(tender_text: str) -> set[str]:
-    """Extract CPV-like mentions from tender text and normalize to canonical style."""
-    canonical_mentions = set(re.findall(r"\b\d{8}-\d\b", tender_text))
-    compact_mentions = {f"{code[:8]}-{code[8]}" for code in re.findall(r"\b\d{9}\b", tender_text)}
-    return canonical_mentions.union(compact_mentions)
-    explicit: set[str] = set()
-
-    # Canonical CPV format: 8 digits + '-' + check digit (e.g. 15900000-7)
-    explicit.update(re.findall(r"\b\d{8}-\d\b", tender_text))
-
-    # Compact format (#########), normalize to ########-#
-    for code in re.findall(r"\b\d{9}\b", tender_text):
-        explicit.add(f"{code[:8]}-{code[8]}")
-
-    return explicit
-
-
-def extract_cpv_stems(tender_text: str) -> set[str]:
-    """Extract 8-digit CPV stems (########) from tender text."""
-    return set(re.findall(r"\b\d{8}\b", tender_text))
 
 
 def find_top_matches(
@@ -159,12 +71,7 @@ def find_top_matches(
     top_k: int = 3,
 ) -> List[MatchResult]:
     model = load_model()
-    query_embedding = model.encode(
-        [tender_text],
-        convert_to_numpy=True,
-        normalize_embeddings=True,
-        show_progress_bar=False,
-    )[0]
+    query_embedding = model.encode([tender_text], convert_to_numpy=True, normalize_embeddings=True, show_progress_bar=False)[0]
 
     scores = cpv_embeddings @ query_embedding
     sorted_indices = np.argsort(scores)[::-1]
@@ -173,13 +80,6 @@ def find_top_matches(
     used_codes = set()
     results: List[MatchResult] = []
 
-    top_indices = np.argsort(scores)[::-1]
-
-    mentioned_codes = extract_mentioned_cpv_codes(tender_text, cpv_df)
-    results: List[MatchResult] = []
-    used_codes = set()
-
-    # Prioritize explicitly mentioned CPV codes from the tender text.
     for code in mentioned_codes:
         idx = cpv_df.index[cpv_df["code"] == code][0]
         results.append(
@@ -194,8 +94,6 @@ def find_top_matches(
             return results
 
     for idx in sorted_indices:
-    # Fill remaining slots with semantic matches.
-    for idx in top_indices:
         code = cpv_df.iloc[idx]["code"]
         if code in used_codes:
             continue
@@ -209,22 +107,11 @@ def find_top_matches(
         if len(results) == top_k:
             break
 
-    top_indices = np.argsort(scores)[-top_k:][::-1]
-
-    results = [
-        MatchResult(
-            code=cpv_df.iloc[idx]["code"],
-            description=cpv_df.iloc[idx]["description"],
-            similarity=float(scores[idx]),
-        )
-        for idx in top_indices
-    ]
     return results
 
 
 def main() -> None:
     st.set_page_config(page_title="TenderAlign AI", page_icon="🧭", layout="centered")
-
     st.title("TenderAlign AI")
     st.caption("Find the top 3 CPV codes from tender text using multilingual semantic similarity.")
 
@@ -238,11 +125,6 @@ def main() -> None:
         cpv_embeddings = build_cpv_embeddings(cpv_df["description"].tolist())
 
     tender_text = st.text_area("Tender Text", placeholder="Paste tender text here...", height=220)
-    tender_text = st.text_area(
-        "Tender Text",
-        placeholder="Paste tender text here...",
-        height=220,
-    )
 
     if st.button("Find Matching CPV Codes", type="primary"):
         if not tender_text.strip():
@@ -257,8 +139,6 @@ def main() -> None:
         known_stems = {code.split("-")[0] for code in known_codes}
         missing_mentions = sorted(code for code in raw_mentions if code not in known_codes)
         missing_mentions.extend(f"{stem}-?" for stem in sorted(raw_stems - known_stems))
-        missing_stems = sorted(stem for stem in raw_stems if stem not in known_stems)
-        missing_mentions.extend(f"{stem}-?" for stem in missing_stems)
 
         with st.spinner("Finding best CPV matches..."):
             matches = find_top_matches(tender_text, cpv_df, cpv_embeddings, top_k=3)
@@ -274,24 +154,6 @@ def main() -> None:
         st.subheader("Top Matches")
         for rank, match in enumerate(matches, start=1):
             st.markdown(f"**{rank}. {match.code} – {match.description}**  \nSimilarity: `{match.similarity:.2f}`")
-        with st.spinner("Finding best CPV matches..."):
-            matches = find_top_matches(tender_text, cpv_df, cpv_embeddings, top_k=3)
-
-        st.subheader("Top Matches")
-        for rank, match in enumerate(matches, start=1):
-            st.markdown(
-                f"**{rank}. {match.code} – {match.description}**  \n"
-                f"Similarity: `{match.similarity:.2f}`"
-            )
-
-        with st.expander("Why these matches?"):
-            st.write(
-                "If CPV codes are explicitly mentioned in the tender text, they are prioritized. "
-                "Remaining matches are selected by cosine similarity between the tender embedding "
-                "and CPV description embeddings."
-                "Matches are selected by cosine similarity between the tender embedding and "
-                "CPV description embeddings. Higher score means stronger semantic alignment."
-            )
 
 
 if __name__ == "__main__":
