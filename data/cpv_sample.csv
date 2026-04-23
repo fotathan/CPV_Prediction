@@ -1,5 +1,4 @@
 code,description
-cpv_code,cpv_label
 03000000-1,"Agricultural, farming, fishing, forestry and related products"
 03100000-2,Agricultural and horticultural products
 03110000-5,"Crops, products of market gardening and horticulture"
@@ -1319,6 +1318,4 @@ cpv_code,cpv_label
 98510000-1,Services of commercial and industrial workers
 98900000-2,Services provided by extra-territorial organisations and bodies
 98910000-5,Services specific to international organisations and bodies
-90514000-3,Refuse recycling services
-45312200-9,Burglar-alarm system installation work
-45232300-5,Construction and ancillary works for telephone and communication lines
+
