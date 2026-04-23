@@ -11,13 +11,14 @@ TenderAlign AI is a lightweight Streamlit app that maps tender text to the **top
   - Similarity score (0-1)
 - If the tender text already contains valid CPV codes from the dataset, those codes are prioritized in results
 - CPV detection supports `########-#`, compact `#########`, and 8-digit stems `########` (validated against known CPV dataset codes)
+- Text-mentioned `########-#` and `########` values can also be suggested directly when their 4-digit parent CPV group (`XXXX0000-#`) exists in the loaded list
 - In-memory CPV embeddings generated once at app startup
 - Fast retrieval suitable for hundreds to thousands of CPV rows
 
 ## Project structure
 
 - `app.py`: Streamlit UI + matching logic
-- `data/cpv_sample.csv`: sample CPV data (`code`, `description`)
+- `data/cpv_full.csv` or `/data/cpv_full.csv`: full multilingual CPV data (`CODE` + language columns)
 - `requirements.txt`: Python dependencies
 
 ## Setup
@@ -45,22 +46,28 @@ Then open the local URL shown by Streamlit in your browser.
 
 ## CSV format
 
-The app expects a CSV at `data/cpv_sample.csv` with columns:
+The app now expects the multilingual full CPV CSV at `/data/cpv_full.csv` (preferred) or `data/cpv_full.csv`.
 
-- `code` (example: `15900000-7`)
-- `description` (example: `Beverages tobacco and related products`)
+Required columns:
 
-You can replace the sample file with your full CPV list.
-If codes mentioned in tenders are missing from your CSV, the app will notify you.
+- `CODE`
+- Language columns such as: `BG, CS, DA, DE, EL, EN, ES, ET, FI, FR, GA, HR, HU, IT, LT, LV, MT, NL, PL, PT, RO, SK, SL, SV`
+
+Display language behavior:
+
+- The UI includes a **Result description language** dropdown (default `EN`)
+- If a description is missing in the selected language, the app falls back to `EN`
+- Semantic matching remains independent from display language (embedding text is prepared at load time)
 
 ## How it works
 
-1. Loads CPV rows from CSV
-2. Uses `paraphrase-multilingual-MiniLM-L12-v2` to embed all CPV descriptions
+1. Loads CPV rows from the full multilingual CSV and preserves all language columns
+2. Uses `paraphrase-multilingual-MiniLM-L12-v2` to embed a stable per-row text (`EN` with fallback to another available language when needed)
 3. Embeds the tender text at query time
 4. Computes cosine similarity
 5. Prioritizes CPV codes explicitly found in the tender text
 6. Fills remaining slots by cosine-similarity ranking to return top 3 results
+7. Adds a short explanation for each result (text-found + parent validation, or semantic similarity)
 
 ## Notes
 
