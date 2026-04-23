@@ -118,6 +118,16 @@ def find_top_matches(
         if len(results) == top_k:
             break
 
+    top_indices = np.argsort(scores)[-top_k:][::-1]
+
+    results = [
+        MatchResult(
+            code=cpv_df.iloc[idx]["code"],
+            description=cpv_df.iloc[idx]["description"],
+            similarity=float(scores[idx]),
+        )
+        for idx in top_indices
+    ]
     return results
 
 
@@ -164,6 +174,8 @@ def main() -> None:
                 "If CPV codes are explicitly mentioned in the tender text, they are prioritized. "
                 "Remaining matches are selected by cosine similarity between the tender embedding "
                 "and CPV description embeddings."
+                "Matches are selected by cosine similarity between the tender embedding and "
+                "CPV description embeddings. Higher score means stronger semantic alignment."
             )
 
 
