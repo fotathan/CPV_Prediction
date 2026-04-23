@@ -54,6 +54,7 @@ def build_cpv_embeddings(descriptions: List[str]) -> np.ndarray:
 
 def extract_mentioned_cpv_codes(tender_text: str, cpv_df: pd.DataFrame) -> List[str]:
     """Extract valid, known CPV codes explicitly mentioned in the tender text."""
+    """Extract CPV codes explicitly mentioned in the tender text."""
     known_codes = set(cpv_df["code"].tolist())
     stem_to_codes: dict[str, List[str]] = {}
     for code in known_codes:
@@ -62,6 +63,18 @@ def extract_mentioned_cpv_codes(tender_text: str, cpv_df: pd.DataFrame) -> List[
 
     explicit = extract_raw_cpv_mentions(tender_text)
     for stem in extract_cpv_stems(tender_text):
+    # Match canonical CPV format: 8 digits + '-' + check digit (e.g. 15900000-7)
+    explicit = set(re.findall(r"\b\d{8}-\d\b", tender_text))
+
+    # Match compact format and normalize to canonical form if it exists in dataset
+    compact = re.findall(r"\b\d{9}\b", tender_text)
+    for code in compact:
+        normalized = f"{code[:8]}-{code[8]}"
+        explicit.add(normalized)
+
+    # Match 8-digit stems only when they map to exactly one known CPV code.
+    # This avoids classifying arbitrary 8-digit values (e.g. IDs/phones) as CPV.
+    for stem in re.findall(r"\b\d{8}\b", tender_text):
         candidates = stem_to_codes.get(stem, [])
         if len(candidates) == 1:
             explicit.add(candidates[0])
@@ -138,6 +151,16 @@ def find_top_matches(
         if len(results) == top_k:
             break
 
+    top_indices = np.argsort(scores)[-top_k:][::-1]
+
+    results = [
+        MatchResult(
+            code=cpv_df.iloc[idx]["code"],
+            description=cpv_df.iloc[idx]["description"],
+            similarity=float(scores[idx]),
+        )
+        for idx in top_indices
+    ]
     return results
 
 
@@ -188,6 +211,9 @@ def main() -> None:
                 + ". Consider loading the full CPV list."
             )
 
+        with st.spinner("Finding best CPV matches..."):
+            matches = find_top_matches(tender_text, cpv_df, cpv_embeddings, top_k=3)
+
         st.subheader("Top Matches")
         for rank, match in enumerate(matches, start=1):
             st.markdown(
@@ -200,6 +226,8 @@ def main() -> None:
                 "If CPV codes are explicitly mentioned in the tender text, they are prioritized. "
                 "Remaining matches are selected by cosine similarity between the tender embedding "
                 "and CPV description embeddings."
+                "Matches are selected by cosine similarity between the tender embedding and "
+                "CPV description embeddings. Higher score means stronger semantic alignment."
             )
 
 

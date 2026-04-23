@@ -1,24 +1,1320 @@
 code,description
-15900000-7,Beverages tobacco and related products
-15800000-6,Food products
-15500000-3,Dairy products
+03000000-1,Agricultural, farming, fishing, forestry and related products
+03100000-2,Agricultural and horticultural products
+03110000-5,Crops, products of market gardening and horticulture
+03120000-8,Horticultural and nursery products
+03130000-1,Beverage and spice crops
+03140000-4,Animal products and related products
+03200000-3,Cereals, potatoes, vegetables, fruits and nuts
+03210000-6,Cereals and potatoes
+03220000-9,Vegetables, fruits and nuts
+03300000-2,Farming, hunting and fishing products
+03310000-5,Fish, crustaceans and aquatic products
+03320000-8,Cattle, livestock and small animals
+03330000-3,Farm animal products
+03340000-6,Animal ear tags
+03400000-4,Forestry and logging products
+03410000-7,Wood
+03420000-0,Gums
+03430000-3,Cork
+03440000-6,Forestry products
+03450000-9,Tree-nursery products
+03460000-2,Pulp
+09000000-3,Petroleum products, fuel, electricity and other sources of energy
+09100000-0,Fuels
+09110000-3,Solid fuels
+09120000-6,Gaseous fuels
+09130000-9,Petroleum and distillates
+09200000-1,Petroleum, coal and oil products
+09210000-4,Lubricating preparations
+09220000-7,Petroleum jelly, waxes and special spirits
+09230000-0,Petroleum (crude)
+09240000-3,Oil and coal-related products
+09300000-2,Electricity, heating, solar and nuclear energy
 09310000-5,Electricity
+09320000-8,Steam, hot water and associated products
+09330000-1,Solar energy
+09340000-4,Nuclear fuels
+14000000-1,Mining, basic metals and related products
+14200000-3,Sand and clay
+14210000-6,Gravel, sand, crushed stone and aggregates
+14220000-9,Clay and kaolin
+14300000-4,Chemical and fertiliser minerals
+14310000-7,Fertiliser minerals
+14320000-0,Chemical minerals
+14400000-5,Salt and pure sodium chloride
+14410000-8,Rock salt
+14420000-1,Sea salt
+14430000-4,Evaporated salt and pure sodium chloride
+14450000-0,Salt in brine
+14500000-6,Related mining and quarrying products
+14520000-2,Precious and semi-precious stones, pumice stone, emery, natural abrasives, other minerals and precious metals
+14600000-7,Metal ores and alloys
+14610000-0,Metal ores
+14620000-3,Alloys
+14630000-6,Slag, dross, ferrous waste and scrap
+14700000-8,Basic metals
+14710000-1,Iron, lead, zinc, tin and copper
+14720000-4,Aluminium, nickel, scandium, titanium and vanadium
+14730000-7,Chromium, manganese, cobalt, yttrium and zirconium
+14740000-0,Molybdenum, technetium, ruthenium and rhodium
+14750000-3,Cadmium, lutetium, hafnium, tantalum and tungsten
+14760000-6,Iridium, gallium, indium, thallium and barium
+14770000-9,Caesium, strontium, rubidium and calcium
+14780000-2,Potassium, magnesium, sodium and lithium
+14790000-5,Niobium, osmium, rhenium and palladium
+14800000-9,Miscellaneous non-metallic mineral products
+14810000-2,Abrasive products
+14820000-5,Glass
+14830000-8,Fibreglass
+14900000-0,Recovered secondary raw materials
+14910000-3,Recovered secondary metal raw materials
+14920000-6,Recovered secondary non-metal raw materials
+14930000-9,Ash and residues containing metals
+15000000-8,Food, beverages, tobacco and related products
+15100000-9,Animal products, meat and meat products
+15110000-2,Meat
+15130000-8,Meat products
+15200000-0,Prepared and preserved fish
+15210000-3,Fish fillets, fish livers and roe
+15220000-6,Frozen fish, fish fillets and other fish meat
+15230000-9,Dried or salted fish; fish in brine; smoked fish
+15240000-2,Canned or tinned fish and other prepared or preserved fish
+15250000-5,Seafood
+15300000-1,Fruit, vegetables and related products
+15310000-4,Potatoes and potato products
+15320000-7,Fruit and vegetable juices
+15330000-0,Processed fruit and vegetables
+15400000-2,Animal or vegetable oils and fats
+15410000-5,Crude animal or vegetable oils and fats
+15420000-8,Refined oils and fats
+15430000-1,Edible fats
+15500000-3,Dairy products
+15510000-6,Milk and cream
+15530000-2,Butter
+15540000-5,Cheese products
+15550000-8,Assorted dairy products
+15600000-4,Grain mill products, starches and starch products
+15610000-7,Grain mill products
+15620000-0,Starches and starch products
+15700000-5,Animal feedstuffs
+15710000-8,Prepared animal feeds for farm and other animals
+15800000-6,Miscellaneous food products
+15810000-9,Bread products, fresh pastry goods and cakes
+15820000-2,Rusks and biscuits; preserved pastry goods and cakes
+15830000-5,Sugar and related products
+15840000-8,Cocoa; chocolate and sugar confectionery
+15850000-1,Pasta products
+15860000-4,Coffee, tea and related products
+15870000-7,Condiments and seasonings
+15880000-0,Special nutritional products
+15890000-3,Miscellaneous food products and dried goods
+15900000-7,Beverages, tobacco and related products
+15910000-0,Distilled alcoholic beverages
+15930000-6,Wines
+15940000-9,Cider and other fruit wines
+15950000-2,Non-distilled fermented beverages
+15960000-5,Malt beer
+15980000-1,Non-alcoholic beverages
+15990000-4,Tobacco, tobacco goods and supplies
+16000000-5,Agricultural machinery
+16100000-6,Agricultural and forestry machinery for soil preparation or cultivation
+16110000-9,Ploughs or disc harrows
+16120000-2,Harrows, scarifiers, cultivators, weeders or hoes
+16130000-5,Seeders, planters or transplanters
+16140000-8,Manure spreaders
+16150000-1,Lawn or sports-ground rollers
+16160000-4,Miscellaneous gardening equipment
+16300000-8,Harvesting machinery
+16310000-1,Mowers
+16320000-4,Haymaking machinery
+16330000-7,Straw or fodder balers
+16340000-0,Harvesting and threshing machinery
+16400000-9,Spraying machinery for agriculture or horticulture
+16500000-0,Self-loading or unloading trailers and semi-trailers for agriculture
+16510000-3,Self-loading trailers for agriculture
+16520000-6,Unloading trailers for agriculture
+16530000-9,Self-loading semi-trailers for agriculture
+16540000-2,Unloading semi-trailers for agriculture
+16600000-1,Specialist agricultural or forestry machinery
+16610000-4,Machines for cleaning, sorting or grading eggs, fruit or other produce
+16620000-7,Milking machines
+16630000-0,Machinery for preparing animal feeding stuffs
+16640000-3,Bee-keeping machinery
+16650000-6,Poultry-keeping machinery
+16700000-2,Tractors
+16710000-5,Pedestrian-controlled agricultural tractors
+16720000-8,Used tractors
+16730000-1,Traction motors
+16800000-3,Parts of agricultural and forestry machinery
+16810000-6,Parts of agricultural machinery
+16820000-9,Parts of forestry machinery
+18000000-9,Clothing, footwear, luggage articles and accessories
+18100000-0,Occupational clothing, special workwear and accessories
+18110000-3,Occupational clothing
+18130000-9,Special workwear
+18140000-2,Workwear accessories
+18200000-1,Outerwear
+18210000-4,Coats
+18220000-7,Weatherproof clothing
+18230000-0,Miscellaneous outerwear
+18300000-2,Garments
+18310000-5,Underwear
+18320000-8,Brassieres, corsets, suspenders and similar articles
+18330000-1,T-shirts and shirts
+18400000-3,Special clothing and accessories
+18410000-6,Special clothing
+18420000-9,Clothing accessories
+18440000-5,Hats and headgear
+18450000-8,Fasteners (clothing)
+18500000-4,Jewellery, watches and related articles
+18510000-7,Jewellery and related articles
+18520000-0,Personal horology
+18530000-3,Presents and rewards
+18600000-5,Furs and articles of fur
+18610000-8,Fur articles
+18620000-1,Furs
+18800000-7,Footwear
+18810000-0,Footwear other than sports and protective footwear
+18820000-3,Sports footwear
+18830000-6,Protective footwear
+18840000-9,Parts of footwear
+18900000-8,Luggage, saddlery, sacks and bags
+18910000-1,Saddlery
+18920000-4,Luggage
+18930000-7,Sacks and bags
+19000000-6,Leather and textile fabrics, plastic and rubber materials
+19100000-7,Leather
+19110000-0,Chamois leather
+19120000-3,Leather of bovine or equine animals
+19130000-6,Leather of sheep, goats or pigs
+19140000-9,Leather of other animals, composite leather and other leather
+19160000-5,Watch straps
+19170000-8,Leather articles used in machinery or mechanical appliances
+19200000-8,Textile fabrics and related items
+19210000-1,Woven fabrics
+19220000-4,Woollen fabrics
+19230000-7,Linen fabrics
+19240000-0,Special fabrics
+19250000-3,Knitted or crocheted fabrics
+19260000-6,Cloth
+19270000-9,Non-woven fabrics
+19280000-2,Animal wool, hides and skins
+19400000-0,Textile yarn and thread
+19410000-3,Natural textile fibres
+19420000-6,Artificial textile fibres
+19430000-9,Textile yarn and thread of natural fibres
+19440000-2,Synthetic yarn or thread
+19500000-1,Rubber and plastic materials
+19510000-4,Rubber products
+19520000-7,Plastic products
+19600000-2,Leather, textile, rubber and plastic waste
+19610000-5,Leather waste
+19620000-8,Textile waste
+19630000-1,Rubber waste
+19640000-4,Polythene waste and refuse sacks and bags
+19700000-3,Synthetic rubber and fibres
+19710000-6,Synthetic rubber
+19720000-9,Synthetic fibres
+19730000-2,Artificial fibres
+22000000-0,Printed matter and related products
+22100000-1,Printed books, brochures and leaflets
+22110000-4,Printed books
+22120000-7,Publications
+22130000-0,Directories
+22140000-3,Leaflets
+22150000-6,Brochures
+22160000-9,Booklets
+22200000-2,Newspapers, journals, periodicals and magazines
+22210000-5,Newspapers
+22300000-3,Postcards, greeting cards and other printed matter
+22310000-6,Postcards
+22320000-9,Greeting cards
+22400000-4,Stamps, cheque forms, banknotes, stock certificates, trade advertising material, catalogues and manuals
+22410000-7,Stamps
+22420000-0,Stamp-impressed paper
+22430000-3,Banknotes
+22440000-6,Cheque forms
+22450000-9,Security-type printed matter
+22460000-2,Trade-advertising material, commercial catalogues and manuals
+22470000-5,Manuals
+22500000-5,Printing plates or cylinders or other media for use in printing
+22510000-8,Offset plates
+22520000-1,Dry-etching equipment
+22600000-6,Ink
+22610000-9,Printing ink
+22800000-8,Paper or paperboard registers, account books, binders, forms and other articles of printed stationery
+22810000-1,Paper or paperboard registers
+22820000-4,Forms
+22830000-7,Exercise books
+22840000-0,Albums for samples
+22850000-3,Binders and related accessories
+22900000-9,Miscellaneous printed matter
+22990000-6,Newsprint, handmade paper and other uncoated paper or paperboard for graphic purposes
+24000000-4,Chemical products
+24100000-5,Gases
+24110000-8,Industrial gases
+24200000-6,Dyes and pigments
+24210000-9,Oxides, peroxides and hydroxides
+24220000-2,Tanning extracts, dyeing extracts, tannins and colouring matter
+24300000-7,Basic inorganic and organic chemicals
+24310000-0,Basic inorganic chemicals
+24320000-3,Basic organic chemicals
+24400000-8,Fertilisers and nitrogen compounds
+24410000-1,Nitrogenous fertilisers
+24420000-4,Phosphatic fertilisers
+24430000-7,Animal or vegetal fertilisers
+24440000-0,Miscellaneous fertilisers
+24450000-3,Agro-chemical products
+24500000-9,Plastics in primary forms
+24510000-2,Primary-form polymers of ethylene
+24520000-5,Primary-form polymers of propylene
+24530000-8,Primary-form polymers of styrene
+24540000-1,Primary-form of vinyl polymers
+24550000-4,Primary-form of polyesters
+24560000-7,Primary-form polyamides
+24570000-0,Primary-form urea resins
+24580000-3,Primary-form amino-resins
+24590000-6,Primary-form silicones
+24600000-0,Explosives
+24610000-3,Prepared explosives
+24900000-3,Fine and various chemical products
+24910000-6,Glues
+24920000-9,Essential oils
+24930000-2,Photographic chemicals
+24950000-8,Specialised chemical products
+24960000-1,Various chemical products
+30000000-9,Office and computing machinery, equipment and supplies except furniture and software packages
+30100000-0,Office machinery, equipment and supplies except computers, printers and furniture
+30110000-3,Word-processing machines
+30120000-6,Photocopying and offset printing equipment
+30130000-9,Post-office equipment
+30140000-2,Calculating and accounting machines
+30150000-5,Typewriters
+30160000-8,Magnetic cards
+30170000-1,Labelling machines
+30180000-4,Check endorsing and writing machines
+30190000-7,Various office equipment and supplies
 30200000-1,Computer equipment and supplies
+30210000-4,Data-processing machines (hardware)
+30220000-7,Digital cartography equipment
+30230000-0,Computer-related equipment
+31000000-6,Electrical machinery, apparatus, equipment and consumables; lighting
+31100000-7,Electric motors, generators and transformers
+31110000-0,Electric motors
+31120000-3,Generators
+31130000-6,Alternators
+31140000-9,Cooling towers
+31150000-2,Ballasts for discharge lamps or tubes
+31160000-5,Parts of electric motors, generators and transformers
+31170000-8,Transformers
+31200000-8,Electricity distribution and control apparatus
+31210000-1,Electrical apparatus for switching or protecting electrical circuits
+31220000-4,Electrical circuit components
+31230000-7,Parts of electricity distribution or control apparatus
+31300000-9,Insulated wire and cable
+31310000-2,Mains
+31320000-5,Power distribution cables
+31330000-8,Coaxial cable
+31340000-1,Insulated cable accessories
+31350000-4,Electric conductors for data and control purposes
+31400000-0,Accumulators, primary cells and primary batteries
+31410000-3,Primary cells
+31420000-6,Primary batteries
+31430000-9,Electric accumulators
+31440000-2,Batteries
+31500000-1,Lighting equipment and electric lamps
+31510000-4,Electric filament lamps
+31520000-7,Lamps and light fittings
+31530000-0,Parts of lamps and lighting equipment
+31600000-2,Electrical equipment and apparatus
+31610000-5,Electrical equipment for engines and vehicles
+31620000-8,Sound or visual signalling apparatus
+31630000-1,Magnets
+31640000-4,Machines and apparatus with individual functions
+31650000-7,Insulating fittings
+31660000-0,Carbon electrodes
+31670000-3,Electrical parts of machinery or apparatus
+31680000-6,Electrical supplies and accessories
+31700000-3,Electronic, electromechanical and electrotechnical supplies
+31710000-6,Electronic equipment
+31720000-9,Electromechanical equipment
+31730000-2,Electrotechnical equipment
+32000000-3,Radio, television, communication, telecommunication and related equipment
+32200000-5,Transmission apparatus for radiotelephony, radiotelegraphy, radio broadcasting and television
+32210000-8,Broadcasting equipment
+32220000-1,Television transmission apparatus without reception apparatus
+32230000-4,Radio transmission apparatus with reception apparatus
+32240000-7,Television cameras
+32250000-0,Mobile telephones
+32260000-3,Data-transmission equipment
+32270000-6,Digital transmission apparatus
+32300000-6,Television and radio receivers, and sound or video recording or reproducing apparatus
+32310000-9,Radio broadcast receivers
+32320000-2,Television and audio-visual equipment
+32330000-5,Apparatus for sound, video-recording and reproduction
+32340000-8,Microphones and loudspeakers
+32350000-1,Parts of sound and video equipment
+32360000-4,Intercom equipment
 32400000-7,Networks
-48000000-8,Software package and information systems
+32410000-0,Local area network
+32420000-3,Network equipment
+32430000-6,Wide area network
+32440000-9,Telemetry and terminal equipment
+32500000-8,Telecommunications equipment and supplies
+32510000-1,Wireless telecommunications system
+32520000-4,Telecommunications cable and equipment
+32530000-7,Satellite-related communications equipment
+32540000-0,Switchboards
+32550000-3,Telephone equipment
+32560000-6,Fibre-optic materials
+32570000-9,Communications equipment
+32580000-2,Data equipment
+33000000-0,Medical equipments, pharmaceuticals and personal care products
+33100000-1,Medical equipments
+33110000-4,Imaging equipment for medical, dental and veterinary use
+33120000-7,Recording systems and exploration devices
+33130000-0,Dental and subspecialty instruments and devices
+33140000-3,Medical consumables
+33150000-6,Radiotherapy, mechanotherapy, electrotherapy and physical therapy devices
+33160000-9,Operating techniques
+33170000-2,Anaesthesia and resuscitation
+33180000-5,Functional support
+33190000-8,Miscellaneous medical devices and products
+33600000-6,Pharmaceutical products
+33610000-9,Medicinal products for the alimentary tract and metabolism
+33620000-2,Medicinal products for the blood, blood-forming organs and the cardiovascular system
+33630000-5,Medicinal products for dermatology and the musculo-skeletal system
+33640000-8,Medicinal products for the genitourinary system and hormones
+33650000-1,General anti-infectives for systemic use, vaccines, antineoplastic and immunodulating agents
+33660000-4,Medicinal products for the nervous system and sensory organs
+33670000-7,Medicinal products for the respiratory system
+33680000-0,Pharmaceutical articles
+33690000-3,Various medicinal products
+33700000-7,Personal care products
+33710000-0,Perfumes, toiletries and condoms
+33720000-3,Razors and manicure or pedicure sets
+33730000-6,Eye care products and corrective lenses
+33740000-9,Hand and nails care products
+33750000-2,Baby care products
+33760000-5,Toilet paper, handkerchiefs, hand towels and serviettes
+33770000-8,Paper sanitary
+33790000-4,Laboratory, hygienic or pharmaceutical glassware
+33900000-9,Post-mortem and mortuary equipment and supplies
+33910000-2,Pathology dissection instruments and supplies
+33920000-5,Autopsy equipment and supplies
+33930000-8,Autopsy furniture
+33940000-1,Cadaver transport and storage equipment and supplies
+33950000-4,Clinical forensics equipment and supplies
+33960000-7,Embalming equipment and supplies
+33970000-0,Mortuary equipment and supplies
+34000000-7,Transport equipment and auxiliary products to transportation
+34100000-8,Motor vehicles
+34110000-1,Passenger cars
+34120000-4,Motor vehicles for the transport of 10 or more persons
+34130000-7,Motor vehicles for the transport of goods
+34140000-0,Heavy-duty motor vehicles
+34150000-3,Simulators
+34200000-9,Vehicle bodies, trailers or semi-trailers
+34210000-2,Vehicle bodies
+34220000-5,Trailers, semi-trailers and mobile containers
+34300000-0,Parts and accessories for vehicles and their engines
+34310000-3,Engines and engine parts
+34320000-6,Mechanical spare parts except engines and engine parts
+34330000-9,Spare parts for goods vehicles, vans and cars
+34350000-5,Tyres for heavy/light-duty vehicles
+34360000-8,Seats for civil aircraft
+34370000-1,Seats for motor vehicles
+34390000-7,Tractor accessories
+34400000-1,Motorcycles, bicycles and sidecars
+34410000-4,Motorcycles
+34420000-7,Motor scooters and cycles with auxiliary motors
+34430000-0,Bicycles
+34500000-2,Ships and boats
+34510000-5,Ships
+34520000-8,Boats
+34600000-3,Railway and tramway locomotives and rolling stock and associated parts
+34610000-6,Rail locomotives and tenders
+34620000-9,Rolling stock
+34630000-2,Parts of railway or tramway locomotives or rolling stock; railways traffic-control equipment
+34640000-5,Automotive elements
+34700000-4,Aircraft and spacecraft
+34710000-7,Helicopters, aeroplanes, spacecraft and other powered aircraft
+34720000-0,Balloons, dirigibles and other non-powered aircraft
+34730000-3,Parts for aircraft, spacecraft and helicopters
+34740000-6,Aircraft or spacecraft equipment, trainers, simulators and associated parts
+34900000-6,Miscellaneous transport equipment and spare parts
+34910000-9,Horse or hand-drawn carts, other non-mechanically-propelled vehicles, baggage carts and miscellaneous spare parts
+34920000-2,Road equipment
+34930000-5,Marine equipment
+34940000-8,Railway equipment
+34950000-1,Loadbearing equipment
+34960000-4,Airport equipment
+34970000-7,Traffic-monitoring equipment
+34980000-0,Transport tickets
+34990000-3,Control, safety, signalling and light equipment
+35000000-4,Security, fire-fighting, police and defence equipment
+35100000-5,Emergency and security equipment
+35110000-8,Firefighting, rescue and safety equipment
+35120000-1,Surveillance and security systems and devices
+35200000-6,Police equipment
+35210000-9,Targets for shooting practice
+35220000-2,Anti-riot equipment
+35230000-5,Handcuffs
+35240000-8,Sirens
+35250000-1,Repellents for canine attack
+35260000-4,Police signs
+35300000-7,Weapons, ammunition and associated parts
+35310000-0,Miscellaneous weapons
+35320000-3,Firearms
+35330000-6,Ammunition
+35340000-9,Parts of firearms and ammunition
+35400000-8,Military vehicles and associated parts
+35410000-1,Armoured military vehicles
+35420000-4,Parts of military vehicles
+35500000-9,Warships and associated parts
+35510000-2,Warships
+35520000-5,Parts for warships
+35600000-0,Military aircrafts, missiles and spacecrafts
+35610000-3,Military aircrafts
+35620000-6,Missiles
+35630000-9,Military spacecrafts
+35640000-2,Parts for military aerospace equipment
+35700000-1,Military electronic systems
+35710000-4,Command, control, communication and computer systems
+35720000-7,Intelligence, surveillance, target acquisition and reconnaissance
+35730000-0,Electronic warfare systems and counter measures
+35740000-3,Battle simulators
+35800000-2,Individual and support equipment
+35810000-5,Individual equipment
+35820000-8,Support equipment
+37000000-8,Musical instruments, sport goods, games, toys, handicraft, art materials and accessories
+37300000-1,Musical instruments and parts
+37310000-4,Musical instruments
+37320000-7,Parts and accessories of musical instruments
+37400000-2,Sports goods and equipment
+37410000-5,Outdoor sports equipment
+37420000-8,Gymnasium equipment
+37430000-1,Boxing equipment
+37440000-4,Fitness equipments
+37450000-7,Field and court sports equipment
+37460000-0,Target and table games and equipments
+37470000-3,Golf and bowling equipments
+37480000-6,Machinery or apparatus for leisure equipment
+37500000-3,Games and toys; fairground amusements
+37510000-6,Dolls
+37520000-9,Toys
+37530000-2,Articles for funfair, table or parlour games
+37540000-5,Gambling machines
+37800000-6,Handicraft and art supplies
+37810000-9,Handicraft supplies
+37820000-2,Art supplies
+38000000-5,Laboratory, optical and precision equipments (excl. glasses)
+38100000-6,Navigational and meteorological instruments
+38110000-9,Navigational instruments
+38120000-2,Meteorological instruments
+38200000-7,Geological and geophysical instruments
+38210000-0,Geological compasses
+38220000-3,Geological prospecting apparatus
+38230000-6,Electromagnetic geophysical instruments
+38240000-9,Gravity geophysical instruments
+38250000-2,Induced polarization IP geophysical instruments
+38260000-5,Magnetometer geophysical instruments
+38270000-8,Resistivity geophysical instruments
+38280000-1,Gravimeters
+38290000-4,Surveying, hydrographic, oceanographic and hydrological instruments and appliances
+38300000-8,Measuring instruments
+38310000-1,Precision balances
+38320000-4,Drafting tables
+38330000-7,Hand-held instruments for measuring length
+38340000-0,Instruments for measuring quantities
+38400000-9,Instruments for checking physical characteristics
+38410000-2,Metering instruments
+38420000-5,Instruments for measuring flow, level and pressure of liquids and gases
+38430000-8,Detection and analysis apparatus
+38500000-0,Checking and testing apparatus
+38510000-3,Microscopes
+38520000-6,Scanners
+38530000-9,Diffraction apparatus
+38540000-2,Machines and apparatus for testing and measuring
+38550000-5,Meters
+38560000-8,Production counters
+38570000-1,Regulating and controlling instruments and apparatus
+38580000-4,Non-medical equipment based on the use of radiations
+38600000-1,Optical instruments
+38620000-7,Polarising material
+38630000-0,Astronomical and optical instruments
+38640000-3,Liquid crystal devices
+38650000-6,Photographic equipment
+38700000-2,Time registers and the like; parking meters
+38710000-5,Time registers
+38720000-8,Time recorders
+38730000-1,Parking meters
+38740000-4,Process timers
+38750000-7,Time switches
+38800000-3,Industrial process control equipment and remote-control equipment
+38810000-6,Industrial process control equipment
+38820000-9,Remote-control equipment
+38900000-4,Miscellaneous evaluation or testing instruments
+38910000-7,Hygiene monitoring and testing equipment
+38920000-0,Seed and feed equipment
+38930000-3,Humidity and moisture measuring instruments
+38940000-6,Nuclear evaluation instruments
+38950000-9,Polymerase Chain Reaction (PCR) equipment
+38960000-2,Alcohol ignition lock
+38970000-5,Research, testing and scientific technical simulator
+39000000-2,Furniture (incl. office furniture), furnishings, domestic appliances (excl. lighting) and cleaning products
+39100000-3,Furniture
+39110000-6,Seats, chairs and related products, and associated parts
+39120000-9,Tables, cupboards, desk and bookcases
+39130000-2,Office furniture
+39140000-5,Domestic furniture
+39150000-8,Miscellaneous furniture and equipment
+39160000-1,School furniture
+39170000-4,Shop furniture
+39180000-7,Laboratory furniture
+39190000-0,Wallpaper and other coverings
+39200000-4,Furnishing
+39220000-0,Kitchen equipment, household and domestic items and catering supplies
+39230000-3,Special-purpose product
+39240000-6,Cutlery
+39260000-2,Delivery trays and desk equipment
+39270000-5,Religious articles
+39290000-1,Miscellaneous furnishing
+39300000-5,Miscellaneous equipment
+39310000-8,Catering equipment
+39330000-4,Disinfection equipment
+39340000-7,Gas network equipment
+39350000-0,Sewerage works equipment
+39360000-3,Sealing equipment
+39370000-6,Water installations
+39500000-7,Textile articles
+39510000-0,Textile household articles
+39520000-3,Made-up textile articles
+39530000-6,Carpets, mats and rugs
+39540000-9,Miscellaneous cordage, rope, twine and netting
+39550000-2,Non-woven articles
+39560000-5,Miscellaneous textile articles
+39700000-9,Domestic appliances
+39710000-2,Electrical domestic appliances
+39720000-5,Non-electric domestic appliances
+39800000-0,Cleaning and polishing products
+39810000-3,Odoriferous preparations and waxes
+39820000-6,Organic surface-active agents
+39830000-9,Cleaning products
+41000000-9,Collected and purified water
+41100000-0,Natural water
+41110000-3,Drinking water
+41120000-6,Non-drinking water
+42000000-6,Industrial machinery
+42100000-0,Machinery for the production and use of mechanical power
+42110000-3,Turbines and motors
+42120000-6,Pumps and compressors
+42130000-9,Taps, cocks, valves and similar appliances
+42140000-2,Gears, gearing and driving elements
+42150000-5,Nuclear reactors and parts
+42160000-8,Boiler installations
+42200000-8,Machinery for food, beverage and tobacco processing and associated parts
+42210000-1,Food, beverage and tobacco-processing machinery
+42220000-4,Parts of machinery for food, beverage and tobacco processing
+42300000-9,Industrial or laboratory furnaces, incinerators and ovens
+42310000-2,Furnace burners
+42320000-5,Waste incinerators
+42330000-8,Smelting furnaces
+42340000-1,Non-domestic ovens
+42350000-4,Cremators
+42390000-6,Parts of furnace burners, furnaces or ovens
+42400000-0,Lifting and handling equipment and parts
+42410000-3,Lifting and handling equipment
+42420000-6,Buckets, shovels, grabs and grips for cranes or excavators
+42500000-1,Cooling and ventilation equipment
+42510000-4,Heat-exchange units, air-conditioning and refrigerating equipment, and filtering machinery
+42520000-7,Ventilation equipment
+42530000-0,Parts of refrigerating and freezing equipment and heat pumps
+42600000-2,Machine tools
+42610000-5,Machine tools operated by laser and machining centres
+42620000-8,Lathes, boring and milling machine tools
+42630000-1,Metal-working machine tools
+42640000-4,Machine tools for working hard materials except metals
+42650000-7,Pneumatic or motorised hand tools
+42660000-0,Soldering, brazing and welding tools, surface tempering and hot-spraying machines and equipment
+42670000-3,Parts and accessories of machine tools
+42700000-3,Machinery for textile, apparel and leather production
+42710000-6,Machinery for textiles
+42720000-9,Parts of machinery for textile and apparel production
+42800000-4,Machinery for paper or paperboard production
+42810000-7,Parts of machinery for paper or paperboard production
+42900000-5,Miscellaneous general and special-purpose machinery
+42910000-8,Distilling, filtering or rectifying apparatus
+42920000-1,Machinery for cleaning bottles, packing and weighing and spraying machinery
+42930000-4,Centrifuges, calendering or vending machines
+42940000-7,Machinery for the heat treatment of materials
+42950000-0,Parts of general-purpose machinery
+42960000-3,Command and control system, printing, graphics, office automation and information-processing equipment
+42970000-6,Parts of dishwashing machines and of machines for cleaning, filling, packing or wrapping
+42980000-9,Gas generators
+42990000-2,Miscellaneous special-purpose machinery
+43000000-3,Machinery for mining, quarrying, construction equipment
+43100000-4,Mining equipment
+43120000-0,Coal or rock cutters and tunnelling machinery, and boring or sinking machinery
+43130000-3,Drilling equipment
+43140000-6,Mobile hydraulic-powered mine roof supports
+43200000-5,Earthmoving and excavating machinery, and associated parts
+43210000-8,Earthmoving machinery
+43220000-1,Graders and levellers
+43230000-4,Scraper machines
+43240000-7,Tamping machines
+43250000-0,Front-end shovel loaders
+43260000-3,Mechanical shovels, excavators and shovel loaders, and mining machinery
+43300000-6,Construction machinery and equipment
+43310000-9,Civil engineering machinery
+43320000-2,Construction equipment
+43400000-7,Mineral-processing and foundry mould-forming machinery
+43410000-0,Mineral-processing machinery
+43420000-3,Foundry mould-forming machinery
+43500000-8,Track-laying vehicles
+43600000-9,Parts of machinery for mining, quarrying and construction
+43610000-2,Parts for boring machinery
+43620000-5,Parts of mineral-processing machinery
+43630000-8,Parts of sinking machinery
+43640000-1,Parts of excavating machinery
+43700000-0,Machinery for metallurgy and associated parts
+43710000-3,Metal-rolling machinery
+43720000-6,Casting machines
+43800000-1,Workshop equipment
+43810000-4,Woodworking equipment
+43820000-7,Shoe-making equipment
+43830000-0,Power tools
+43840000-3,Blacksmiths' equipment
+44000000-0,Construction structures and materials; auxiliary products to construction (except electric apparatus)
+44100000-1,Construction materials and associated items
+44110000-4,Construction materials
+44130000-0,Sewer mains
+44140000-3,Products related to construction materials
+44160000-9,Pipeline, piping, pipes, casing, tubing and related items
+44170000-2,Plates, sheets, strip and foil related to construction materials
+44190000-8,Miscellaneous construction materials
+44200000-2,Structural products
+44210000-5,Structures and parts of structures
+44220000-8,Builders' joinery
+44230000-1,Builders' carpentry
+44300000-3,Cable, wire and related products
+44310000-6,Wire products
+44320000-9,Cable and related products
+44330000-2,Bars, rods, wire and profiles used in construction
+44400000-4,Miscellaneous fabricated products and related items
+44410000-7,Articles for the bathroom and kitchen
+44420000-0,Goods used in construction
+44430000-3,Armour plating
+44440000-6,Bearings
+44450000-9,Mild steel
+44460000-2,Props and mining struts
+44470000-5,Cast-iron products
+44480000-8,Miscellaneous fire-protection equipment
+44500000-5,Tools, locks, keys, hinges, fasteners, chain and springs
+44510000-8,Tools
+44520000-1,Locks, keys and hinges
+44530000-4,Fasteners
+44540000-7,Chain
+44550000-0,Springs
+44600000-6,Tanks, reservoirs and containers; central-heating radiators and boilers
+44610000-9,Tanks, reservoirs, containers and pressure vessels
+44620000-2,Central-heating radiators and boilers and parts
+44800000-8,Paints, varnishes and mastics
+44810000-1,Paints
+44820000-4,Varnishes
+44830000-7,Mastics, fillers, putty and solvents
+44900000-9,Stone for construction, limestone, gypsum and slate
+44910000-2,Stone for construction
+44920000-5,Limestone, gypsum and chalk
+44930000-8,Slate
 45000000-7,Construction work
+45100000-8,Site preparation work
+45110000-1,Building demolition and wrecking work and earthmoving work
+45120000-4,Test drilling and boring work
 45200000-9,Works for complete or part construction and civil engineering work
+45210000-2,Building construction work
+45220000-5,Engineering works and construction works
+45230000-8,Construction work for pipelines, communication and power lines, for highways, roads, airfields and railways; flatwork
+45240000-1,Construction work for water projects
+45250000-4,Construction works for plants, mining and manufacturing and for buildings relating to the oil and gas industry
+45260000-7,Roof works and other special trade construction works
 45300000-0,Building installation work
+45310000-3,Electrical installation work
+45320000-6,Insulation work
+45330000-9,Plumbing and sanitary works
+45340000-2,Fencing, railing and safety equipment installation work
+45350000-5,Mechanical installations
 45400000-1,Building completion work
+45410000-4,Plastering work
+45420000-7,Joinery and carpentry installation work
+45430000-0,Floor and wall covering work
+45440000-3,Painting and glazing work
+45450000-6,Other building completion work
+45500000-2,Hire of construction and civil engineering machinery and equipment with operator
+45510000-5,Hire of cranes with operator
+45520000-8,Hire of earthmoving equipment with operator
+48000000-8,Software package and information systems
+48100000-9,Industry specific software package
+48110000-2,Point of sale (POS) software package
+48120000-5,Flight control software package
+48130000-8,Aviation ground support and test software package
+48140000-1,Railway traffic control software package
+48150000-4,Industrial control software package
+48160000-7,Library software package
+48170000-0,Compliance software package
+48180000-3,Medical software package
+48190000-6,Educational software package
+48200000-0,Networking, Internet and intranet software package
+48210000-3,Networking software package
+48220000-6,Internet and intranet software package
+48300000-1,Document creation, drawing, imaging, scheduling and productivity software package
+48310000-4,Document creation software package
+48320000-7,Drawing and imaging software package
+48330000-0,Scheduling and productivity software package
+48400000-2,Business transaction and personal business software package
+48410000-5,Investment management and tax preparation software package
+48420000-8,Facilities management software package and software package suite
+48430000-1,Inventory management software package
+48440000-4,Financial analysis and accounting software package
+48450000-7,Time accounting or human resources software package
+48460000-0,Analytical, scientific, mathematical or forecasting software package
+48470000-3,Auction software package
+48480000-6,Sales, marketing and business intelligence software package
+48490000-9,Procurement software package
+48500000-3,Communication and multimedia software package
+48510000-6,Communication software package
+48520000-9,Multimedia software package
+48600000-4,Database and operating software package
+48610000-7,Database systems
+48620000-0,Operating systems
+48700000-5,Software package utilities
+48710000-8,Backup or recovery software package
+48720000-1,Bar coding software package
+48730000-4,Security software package
+48740000-7,Foreign language translation software package
+48750000-0,Storage media loading software package
+48760000-3,Virus protection software package
+48770000-6,General, compression and print utility software package
+48780000-9,System, storage and content management software package
+48790000-2,Version checker software package
+48800000-6,Information systems and servers
+48810000-9,Information systems
+48820000-2,Servers
+48900000-7,Miscellaneous software package and computer systems
+48910000-0,Computer game software package, family titles and screen savers
+48920000-3,Office automation software package
+48930000-6,Training and entertainment software package
+48940000-9,Pattern design and calendar software package
+48950000-2,Boat-location and public address system
+48960000-5,Drivers and system software package
+48970000-8,Print shop software package
+48980000-1,Programming languages and tools
+48990000-4,Spreadsheets and enhancement software package
 50000000-5,Repair and maintenance services
-50300000-8,Repair maintenance and associated services related to personal computers office equipment telecommunications and audio-visual equipment
-71000000-8,Architectural construction engineering and inspection services
-72000000-5,IT services consulting software development Internet and support
+50100000-6,Repair, maintenance and associated services of vehicles and related equipment
+50110000-9,Repair and maintenance services of motor vehicles and associated equipment
+50190000-3,Demolition services of vehicles
+50200000-7,Repair, maintenance and associated services related to aircraft, railways, roads and marine equipment
+50210000-0,Repair, maintenance and associated services related to aircraft and other equipment
+50220000-3,Repair, maintenance and associated services related to railways and other equipment
+50230000-6,Repair, maintenance and associated services related to roads and other equipment
+50240000-9,Repair, maintenance and associated services related to marine and other equipment
+50300000-8,Repair, maintenance and associated services related to personal computers, office equipment, telecommunications and audio-visual equipment
+50310000-1,Maintenance and repair of office machinery
+50320000-4,Repair and maintenance services of personal computers
+50330000-7,Maintenance services of telecommunications equipment
+50340000-0,Repair and maintenance services of audio-visual and optical equipment
+50400000-9,Repair and maintenance services of medical and precision equipment
+50410000-2,Repair and maintenance services of measuring, testing and checking apparatus
+50420000-5,Repair and maintenance services of medical and surgical equipment
+50430000-8,Repair and maintenance services of precision equipment
+50500000-0,Repair and maintenance services for pumps, valves, taps and metal containers and machinery
+50510000-3,Repair and maintenance services of pumps, valves, taps and metal containers
+50530000-9,Repair and maintenance services of machinery
+50600000-1,Repair and maintenance services of security and defence materials
+50610000-4,Repair and maintenance services of security equipment
+50620000-7,Repair and maintenance services of firearms and ammunition
+50630000-0,Repair and maintenance services of military vehicles
+50640000-3,Repair and maintenance services of warships
+50650000-6,Repair and maintenance services of military aircrafts, missiles and spacecrafts
+50660000-9,Repair and maintenance services of military electronic systems
+50700000-2,Repair and maintenance services of building installations
+50710000-5,Repair and maintenance services of electrical and mechanical building installations
+50720000-8,Repair and maintenance services of central heating
+50730000-1,Repair and maintenance services of cooler groups
+50740000-4,Repair and maintenance services of escalators
+50750000-7,Lift-maintenance services
+50760000-0,Repair and maintenance of public conveniences
+50800000-3,Miscellaneous repair and maintenance services
+50810000-6,Repair services of jewellery
+50820000-9,Repair services of leather personal goods
+50830000-2,Repair services of garments and textiles
+50840000-5,Repair and maintenance services of weapons and weapon systems
+50850000-8,Repair and maintenance services of furniture
+50860000-1,Repair and maintenance services of musical instruments
+50870000-4,Repair and maintenance services of playground equipment
+50880000-7,Repair and maintenance services of hotel and restaurant equipment
+51000000-9,Installation services (except software)
+51100000-3,Installation services of electrical and mechanical equipment
+51110000-6,Installation services of electrical equipment
+51120000-9,Installation services of mechanical equipment
+51130000-2,Installation services of steam generators, turbines, compressors and burners
+51140000-5,Installation services of engines
+51200000-4,Installation services of equipment for measuring, checking, testing and navigating
+51210000-7,Installation services of measuring equipment
+51220000-0,Installation services of checking equipment
+51230000-3,Installation services of testing equipment
+51240000-6,Installation services of navigating equipment
+51300000-5,Installation services of communications equipment
+51310000-8,Installation services of radio, television, sound and video equipment
+51320000-1,Installation services of radio and television transmitters
+51330000-4,Installation services of radiotelephony apparatus
+51340000-7,Installation services of line telephony equipment
+51350000-0,Installation services of line telegraphy equipment
+51400000-6,Installation services of medical and surgical equipment
+51410000-9,Installation services of medical equipment
+51420000-2,Installation services of surgical equipment
+51430000-5,Installation services of laboratory equipment
+51500000-7,Installation services of machinery and equipment
+51510000-0,Installation services of general-purpose machinery and equipment
+51520000-3,Installation services of agricultural and forestry machinery
+51530000-6,Installation services of machine tools
+51540000-9,Installation services of special-purpose machinery and equipment
+51550000-2,Installation services of weapon systems
+51600000-8,Installation services of computers and office equipment
+51610000-1,Installation services of computers and information-processing equipment
+51620000-4,Installation services of office equipment
+51700000-9,Installation services of fire protection equipment
+51800000-0,Installation services of metal containers
+51810000-3,Installation services of tanks
+51820000-6,Installation services of reservoirs
+51900000-1,Installation services of guidance and control systems
+55000000-0,Hotel, restaurant and retail trade services
+55100000-1,Hotel services
+55110000-4,Hotel accommodation services
+55120000-7,Hotel meeting and conference services
+55130000-0,Other hotel services
+55200000-2,Camping sites and other non-hotel accommodation
+55210000-5,Youth hostel services
+55220000-8,Camping-site services
+55240000-4,Holiday centre and holiday home services
+55250000-7,Letting services of short-stay furnished accommodation
+55260000-0,Sleeping-car services
+55270000-3,Services provided by bed and breakfast establishments
+55300000-3,Restaurant and food-serving services
+55310000-6,Restaurant waiter services
+55320000-9,Meal-serving services
+55330000-2,Cafeteria services
+55400000-4,Beverage-serving services
+55410000-7,Bar management services
+55500000-5,Canteen and catering services
+55510000-8,Canteen services
+55520000-1,Catering services
+55900000-9,Retail trade services
+60000000-8,Transport services (excl. Waste transport)
+60100000-9,Road transport services
+60120000-5,Taxi services
+60130000-8,Special-purpose road passenger-transport services
+60140000-1,Non-scheduled passenger transport
+60150000-4,Passenger transport by animal-drawn vehicles
+60160000-7,Mail transport by road
+60170000-0,Hire of passenger transport vehicles with driver
+60180000-3,Hire of goods-transport vehicles with driver
+60200000-0,Railway transport services
+60210000-3,Public transport services by railways
+60220000-6,Mail transport by railway
+60300000-1,Pipeline transport services
+60400000-2,Air transport services
+60410000-5,Scheduled air transport services
+60420000-8,Non-scheduled air transport services
+60440000-4,Aerial and related services
+60500000-3,Space transport services
+60510000-6,Satellite launch services
+60520000-9,Experimental payload services
+60600000-4,Water transport services
+60610000-7,Ferry transport services
+60620000-0,Transport by water of mail
+60630000-3,Cable-laying ship services
+60640000-6,Shipping operations
+60650000-9,Hire of water transport equipment with crew
+63000000-9,Supporting and auxiliary transport services; travel agencies services
+63100000-0,Cargo handling and storage services
+63110000-3,Cargo handling services
+63120000-6,Storage and warehousing services
+63500000-4,Travel agency, tour operator and tourist assistance services
+63510000-7,Travel agency and similar services
+63520000-0,Transport agency services
+63700000-6,Support services for land, water and air transport
+63710000-9,Support services for land transport
+63720000-2,Support services for water transport
+63730000-5,Support services for air transport
+64000000-6,Postal and telecommunications services
+64100000-7,Post and courier services
+64110000-0,Postal services
+64120000-3,Courier services
+64200000-8,Telecommunications services
+64210000-1,Telephone and data transmission services
+64220000-4,Telecommunication services except telephone and data transmission services
+65000000-3,Public utilities
+65100000-4,Water distribution and related services
+65110000-7,Water distribution
+65120000-0,Operation of a water-purification plant
+65130000-3,Operation of water supplies
+65200000-5,Gas distribution and related services
+65210000-8,Gas distribution
+65300000-6,Electricity distribution and related services
+65310000-9,Electricity distribution
+65320000-2,Operation of electrical installations
+65400000-7,Other sources of energy supplies and distribution
+65410000-0,Operation of a power plant
+65500000-8,Meter reading service
+66000000-0,Financial and insurance services
+66100000-1,Banking and investment services
+66110000-4,Banking services
+66120000-7,Investment banking services and related services
+66130000-0,Brokerage and related securities and commodities services
+66140000-3,Portfolio management services
+66150000-6,Financial markets administration services
+66160000-9,Trust and custody services
+66170000-2,Financial consultancy, financial transaction processing and clearing-house services
+66180000-5,Foreign exchange services
+66190000-8,Loan brokerage services
+66500000-5,Insurance and pension services
+66510000-8,Insurance services
+66520000-1,Pension services
+66600000-6,Treasury services
+66700000-7,Reinsurance services
+66710000-0,Life reinsurance services
+66720000-3,Accident and health reinsurance services
+70000000-1,Real estate services
+70100000-2,Real estate services with own property
+70110000-5,Development services of real estate
+70120000-8,Buying and selling of real estate
+70130000-1,Letting services of own property
+70200000-3,Renting or leasing services of own property
+70210000-6,Residential property renting or leasing services
+70220000-9,Non-residential property renting or leasing services
+70300000-4,Real estate agency services on a fee or contract basis
+70310000-7,Building rental or sale services
+70320000-0,Land rental or sale services
+70330000-3,Property management services of real estate on a fee or contract basis
+70340000-6,Time-sharing services
+71000000-8,Architectural, construction, engineering and inspection services
+71200000-0,Architectural and related services
+71210000-3,Advisory architectural services
+71220000-6,Architectural design services
+71230000-9,Organisation of architectural design contests
+71240000-2,Architectural, engineering and planning services
+71250000-5,Architectural, engineering and surveying services
+71300000-1,Engineering services
+71310000-4,Consultative engineering and construction services
+71320000-7,Engineering design services
+71330000-0,Miscellaneous engineering services
+71340000-3,Integrated engineering services
+71350000-6,Engineering-related scientific and technical services
+71400000-2,Urban planning and landscape architectural services
+71410000-5,Urban planning services
+71420000-8,Landscape architectural services
+71500000-3,Construction-related services
+71510000-6,Site-investigation services
+71520000-9,Construction supervision services
+71530000-2,Construction consultancy services
+71540000-5,Construction management services
+71550000-8,Blacksmith services
+71600000-4,Technical testing, analysis and consultancy services
+71610000-7,Composition and purity testing and analysis services
+71620000-0,Analysis services
+71630000-3,Technical inspection and testing services
+71700000-5,Monitoring and control services
+71730000-4,Industrial inspection services
+71800000-6,Consulting services for water-supply and waste consultancy
+71900000-7,Laboratory services
+72000000-5,IT services: consulting, software development, Internet and support
+72100000-6,Hardware consultancy services
+72110000-9,Hardware selection consultancy services
+72120000-2,Hardware disaster-recovery consultancy services
+72130000-5,Computer-site planning consultancy services
+72140000-8,Computer hardware acceptance testing consultancy services
+72150000-1,Computer audit consultancy and hardware consultancy services
 72200000-7,Software programming and consultancy services
+72210000-0,Programming services of packaged software products
+72220000-3,Systems and technical consultancy services
+72230000-6,Custom software development services
+72240000-9,Systems analysis and programming services
+72250000-2,System and support services
+72260000-5,Software-related services
 72300000-8,Data services
+72310000-1,Data-processing services
+72320000-4,Database services
+72330000-2,Content or data standardization and classification services
 72400000-4,Internet services
+72410000-7,Provider services
+72420000-0,Internet development services
+72500000-0,Computer-related services
+72510000-3,Computer-related management services
+72540000-2,Computer upgrade services
+72590000-7,Computer-related professional services
+72600000-6,Computer support and consultancy services
+72610000-9,Computer support services
+72700000-7,Computer network services
+72710000-0,Local area network services
+72720000-3,Wide area network services
+72800000-8,Computer audit and testing services
+72810000-1,Computer audit services
+72820000-4,Computer testing services
+72900000-9,Computer back-up and catalogue conversion services
+72910000-2,Computer back-up services
+72920000-5,Computer catalogue conversion services
 73000000-2,Research and development services and related consultancy services
+73100000-3,Research and experimental development services
+73110000-6,Research services
+73120000-9,Experimental development services
+73200000-4,Research and development consultancy services
+73210000-7,Research consultancy services
+73220000-0,Development consultancy services
+73300000-5,Design and execution of research and development
+73400000-6,Research and Development services on security and defence materials
+73410000-9,Military research and technology
+73420000-2,Pre-feasibility study and technological demonstration
+73430000-5,Test and evaluation
+75000000-6,Administration, defence and social security services
+75100000-7,Administration services
+75110000-0,General public services
+75120000-3,Administrative services of agencies
+75130000-6,Supporting services for the government
+75200000-8,Provision of services to the community
+75210000-1,Foreign affairs and other services
+75220000-4,Defence services
+75230000-7,Justice services
+75240000-0,Public security, law and order services
+75250000-3,Fire-brigade and rescue services
+75300000-9,Compulsory social security services
+75310000-2,Benefit services
+75320000-5,Government employee pension schemes
+75330000-8,Family allowances
+75340000-1,Child allowances
+76000000-3,Services related to the oil and gas industry
+76100000-4,Professional services for the gas industry
+76110000-7,Services incidental to gas extraction
+76120000-0,Diving services incidental to gas extraction
+76200000-5,Professional services for the oil industry
+76210000-8,Services incidental to oil extraction
+76300000-6,Drilling services
+76310000-9,Drilling services incidental to gas extraction
+76320000-2,Offshore drilling services
+76330000-5,Turbine drilling services
+76340000-8,Core drilling
+76400000-7,Rig-positioning services
+76410000-0,Well-casing and tubing services
+76420000-3,Well-cementing services
+76430000-6,Well-drilling and production services
+76440000-9,Well-logging services
+76450000-2,Well-management services
+76460000-5,Well-support services
+76470000-8,Well-testing services
+76480000-1,Tubing services
+76490000-4,Well-completion services
+76500000-8,Onshore and offshore services
+76510000-1,Onshore services
+76520000-4,Offshore services
+76530000-7,Downhole services
+76600000-9,Pipeline-inspection services
+77000000-0,Agricultural, forestry, horticultural, aquacultural and apicultural services
+77100000-1,Agricultural services
+77110000-4,Services incidental to agricultural production
+77120000-7,Composting services
+77200000-2,Forestry services
+77210000-5,Logging services
+77220000-8,Timber-impregnation services
+77230000-1,Services incidental to forestry
+77300000-3,Horticultural services
+77310000-6,Planting and maintenance services of green areas
+77320000-9,Sports fields maintenance services
+77330000-2,Floral-display services
+77340000-5,Tree pruning and hedge trimming
+77400000-4,Zoological services
+77500000-5,Animal husbandry services
+77510000-8,Game-propagation services
+77600000-6,Hunting services
+77610000-9,Trapping services
+77700000-7,Services incidental to fishing
+77800000-8,Aquaculture services
+77810000-1,Mariculture services
+77820000-4,Ostreiculture services
+77830000-7,Shellfish culture services
+77840000-0,Shrimp farming services
+77850000-3,Fish farming services
+77900000-9,Apiculture services
+79000000-4,Business services: law, marketing, consulting, recruitment, printing and security
+79100000-5,Legal services
+79110000-8,Legal advisory and representation services
+79120000-1,Patent and copyright consultancy services
+79130000-4,Legal documentation and certification services
+79140000-7,Legal advisory and information services
+79200000-6,Accounting, auditing and fiscal services
+79210000-9,Accounting and auditing services
+79220000-2,Fiscal services
+79300000-7,Market and economic research; polling and statistics
+79310000-0,Market research services
+79320000-3,Public-opinion polling services
+79330000-6,Statistical services
+79340000-9,Advertising and marketing services
+79400000-8,Business and management consultancy and related services
+79410000-1,Business and management consultancy services
+79420000-4,Management-related services
+79430000-7,Crisis management services
+79500000-9,Office-support services
+79510000-2,Telephone-answering services
+79520000-5,Reprographic services
+79530000-8,Translation services
+79540000-1,Interpretation services
+79550000-4,Typing, word-processing and desktop publishing services
+79560000-7,Filing services
+79570000-0,Mailing-list compilation and mailing services
+79600000-0,Recruitment services
+79610000-3,Placement services of personnel
+79620000-6,Supply services of personnel including temporary staff
+79630000-9,Personnel services except placement and supply services
+79700000-1,Investigation and security services
+79710000-4,Security services
+79720000-7,Investigation services
 79800000-2,Printing and related services
-90514000-3,Refuse recycling services
-45312200-9,Burglar-alarm system installation work
-45232300-5,Construction and ancillary works for telephone and communication lines
+79810000-5,Printing services
+79820000-8,Services related to printing
+79900000-3,Miscellaneous business and business-related services
+79910000-6,Management holdings services
+79920000-9,Packaging and related services
+79930000-2,Specialty design services
+79940000-5,Collection agency services
+79950000-8,Exhibition, fair and congress organisation services
+79960000-1,Photographic and ancillary services
+79970000-4,Publishing services
+79980000-7,Subscription services
+79990000-0,Miscellaneous business-related services
+80000000-4,Education and training services
+80100000-5,Primary education services
+80110000-8,Pre-school education services
+80200000-6,Secondary education services
+80210000-9,Technical and vocational secondary education services
+80300000-7,Higher education services
+80310000-0,Youth education services
+80320000-3,Medical education services
+80330000-6,Safety education services
+80340000-9,Special education services
+80400000-8,Adult and other education services
+80410000-1,Various school services
+80420000-4,E-learning services
+80430000-7,Adult-education services at university level
+80490000-5,Operation of an educational centre
+80500000-9,Training services
+80510000-2,Specialist training services
+80520000-5,Training facilities
+80530000-8,Vocational training services
+80540000-1,Environmental training services
+80550000-4,Safety training services
+80560000-7,Health and first-aid training services
+80570000-0,Personal development training services
+80580000-3,Provision of language courses
+80590000-6,Tutorial services
+80600000-0,Training services in defence and security materials
+80610000-3,Training and simulation in security equipment
+80620000-6,Training and simulation in firearms and ammunition
+80630000-9,Training and simulation in military vehicles
+80640000-2,Training and simulation in warships
+80650000-5,Training and simulation in aircrafts, missiles and spacecrafts
+80660000-8,Training and simulation in military electronic systems
+85000000-9,Health and social work services
+85100000-0,Health services
+85110000-3,Hospital and related services
+85120000-6,Medical practice and related services
+85130000-9,Dental practice and related services
+85140000-2,Miscellaneous health services
+85150000-5,Medical imaging services
+85160000-8,Optician services
+85170000-1,Acupuncture and chiropractor services
+85200000-1,Veterinary services
+85210000-3,Domestic animal nurseries
+85300000-2,Social work and related services
+85310000-5,Social work services
+85320000-8,Social services
+90000000-7,Sewage, refuse, cleaning and environmental services
+90400000-1,Sewage services
+90410000-4,Sewage removal services
+90420000-7,Sewage treatment services
+90430000-0,Sewage disposal services
+90440000-3,Treatment services of cesspools
+90450000-6,Treatment services of septic tanks
+90460000-9,Cesspool or septic tank emptying services
+90470000-2,Sewer cleaning services
+90480000-5,Sewerage management services
+90490000-8,Sewer survey and sewage treatment consultancy services
+90500000-2,Refuse and waste related services
+90510000-5,Refuse disposal and treatment
+90520000-8,Radioactive-, toxic-, medical- and hazardous waste services
+90530000-1,Operation of a refuse site
+90600000-3,Cleaning and sanitation services in urban or rural areas, and related services
+90610000-6,Street-cleaning and sweeping services
+90620000-9,Snow-clearing services
+90630000-2,Ice-clearing services
+90640000-5,Gully cleaning and emptying services
+90650000-8,Asbestos removal services
+90660000-1,Deleading services
+90670000-4,Disinfecting and exterminating services in urban or rural areas
+90680000-7,Beach cleaning services
+90690000-0,Graffiti removal services
+90700000-4,Environmental services
+90710000-7,Environmental management
+90720000-0,Environmental protection
+90730000-3,Pollution tracking and monitoring and rehabilitation
+90740000-6,Pollutants tracking and monitoring and rehabilitation services
+90900000-6,Cleaning and sanitation services
+90910000-9,Cleaning services
+90920000-2,Facility related sanitation services
+92000000-1,Recreational, cultural and sporting services
+92100000-2,Motion picture and video services
+92110000-5,Motion picture and video tape production and related services
+92120000-8,Motion-picture or video-tape distribution services
+92130000-1,Motion picture projection services
+92140000-4,Video-tape projection services
+92200000-3,Radio and television services
+92210000-6,Radio services
+92220000-9,Television services
+92230000-2,Radio and television cable services
+92300000-4,Entertainment services
+92310000-7,Artistic and literary creation and interpretation services
+92320000-0,Arts-facility operation services
+92330000-3,Recreational-area services
+92340000-6,Dance and performance entertainment services
+92350000-9,Gambling and betting services
+92360000-2,Pyrotechnic services
+92370000-5,Sound technician
+92400000-5,News-agency services
+92500000-6,Library, archives, museums and other cultural services
+92510000-9,Library and archive services
+92520000-2,Museum services and preservation services of historical sites and buildings
+92530000-5,Botanical and zoological garden services and nature reserve services
+92600000-7,Sporting services
+92610000-0,Sports facilities operation services
+92620000-3,Sport-related services
+92700000-8,Cybercafé services
+98000000-3,Other community, social and personal services
+98100000-4,Membership organisation services
+98110000-7,Services furnished by business, professional and specialist organisations
+98120000-0,Services furnished by trade unions
+98130000-3,Miscellaneous membership organisations services
+98200000-5,Equal opportunities consultancy services
+98300000-6,Miscellaneous services
+98310000-9,Washing and dry-cleaning services
+98320000-2,Hairdressing and beauty treatment services
+98330000-5,Physical well-being services
+98340000-8,Accommodation and office services
+98350000-1,Civic-amenity services
+98360000-4,Marine services
+98370000-7,Funeral and related services
+98380000-0,Dog kennel services
+98390000-3,Other services
+98500000-8,Private households with employed persons
+98510000-1,Services of commercial and industrial workers
+98900000-2,Services provided by extra-territorial organisations and bodies
+98910000-5,Services specific to international organisations and bodies
