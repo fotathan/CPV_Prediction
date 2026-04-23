@@ -18,7 +18,6 @@ class MatchResult:
     code: str
     description: str
     similarity: float
-    explanation: str
 
 
 @st.cache_resource(show_spinner=False)
@@ -65,43 +64,6 @@ def extract_mentioned_cpv_codes(tender_text: str, cpv_df: pd.DataFrame) -> List[
     return sorted(code for code in explicit if code in known_codes)
 
 
-def extract_text_cpv_candidates(tender_text: str, cpv_df: pd.DataFrame) -> List[tuple[str, str, str]]:
-    """
-    Return CPV-like mentions from tender text (########-# or ########) that are
-    considered valid when their 4-digit parent group exists in the CPV list.
-    """
-    known_codes = set(cpv_df["code"].tolist())
-    parent_map = {
-        code.split("-")[0]: code
-        for code in known_codes
-        if code.split("-")[0].endswith("0000")
-    }
-    ordered_candidates: List[str] = []
-
-    for match in re.finditer(r"\b\d{8}-\d\b|\b\d{8}\b", tender_text):
-        candidate = match.group(0)
-        if candidate not in ordered_candidates:
-            ordered_candidates.append(candidate)
-
-    validated: List[tuple[str, str, str]] = []
-    for candidate in ordered_candidates:
-        stem8 = candidate[:8]
-        parent_code = parent_map.get(f"{stem8[:4]}0000")
-        if not parent_code:
-            continue
-
-        if candidate in known_codes:
-            description = cpv_df.loc[cpv_df["code"] == candidate, "description"].iloc[0]
-        else:
-            parent_desc = cpv_df.loc[cpv_df["code"] == parent_code, "description"].iloc[0]
-            description = f"Text-mentioned CPV; parent group: {parent_code} ({parent_desc})"
-
-        explanation = f"Found in tender text and validated via 4-digit parent group {parent_code}."
-        validated.append((candidate, description, explanation))
-
-    return validated
-
-
 def find_top_matches(
     tender_text: str,
     cpv_df: pd.DataFrame,
@@ -114,40 +76,34 @@ def find_top_matches(
     scores = cpv_embeddings @ query_embedding
     sorted_indices = np.argsort(scores)[::-1]
 
-    validated_candidates = extract_text_cpv_candidates(tender_text, cpv_df)
-    used_stems = set()
+    mentioned_codes = extract_mentioned_cpv_codes(tender_text, cpv_df)
+    used_codes = set()
     results: List[MatchResult] = []
 
-    for code, description, explanation in validated_candidates:
-        stem = code[:8]
-        if stem in used_stems:
-            continue
+    for code in mentioned_codes:
+        idx = cpv_df.index[cpv_df["code"] == code][0]
         results.append(
             MatchResult(
-                code=code,
-                description=description,
-                similarity=0.99,
-                explanation=explanation,
+                code=cpv_df.iloc[idx]["code"],
+                description=cpv_df.iloc[idx]["description"],
+                similarity=max(0.99, float(scores[idx])),
             )
         )
-        used_stems.add(stem)
+        used_codes.add(code)
         if len(results) == top_k:
             return results
 
     for idx in sorted_indices:
         code = cpv_df.iloc[idx]["code"]
-        stem = code.split("-")[0]
-        if stem in used_stems:
+        if code in used_codes:
             continue
         results.append(
             MatchResult(
                 code=code,
                 description=cpv_df.iloc[idx]["description"],
                 similarity=float(scores[idx]),
-                explanation="Suggested by multilingual semantic similarity.",
             )
         )
-        used_stems.add(stem)
         if len(results) == top_k:
             break
 
@@ -180,17 +136,9 @@ def main() -> None:
         raw_mentions = extract_raw_cpv_mentions(tender_text)
         raw_stems = extract_cpv_stems(tender_text)
         known_codes = set(cpv_df["code"].tolist())
-        known_parent_stems = {
-            code.split("-")[0]
-            for code in known_codes
-            if code.split("-")[0].endswith("0000")
-        }
-        missing_mentions = sorted(
-            code for code in raw_mentions if f"{code[:4]}0000" not in known_parent_stems
-        )
-        missing_mentions.extend(
-            stem for stem in sorted(raw_stems) if f"{stem[:4]}0000" not in known_parent_stems
-        )
+        known_stems = {code.split("-")[0] for code in known_codes}
+        missing_mentions = sorted(code for code in raw_mentions if code not in known_codes)
+        missing_mentions.extend(f"{stem}-?" for stem in sorted(raw_stems - known_stems))
 
         with st.spinner("Finding best CPV matches..."):
             matches = find_top_matches(tender_text, cpv_df, cpv_embeddings, top_k=3)
@@ -205,11 +153,7 @@ def main() -> None:
 
         st.subheader("Top Matches")
         for rank, match in enumerate(matches, start=1):
-            st.markdown(
-                f"**{rank}. {match.code} – {match.description}**  \n"
-                f"Similarity: `{match.similarity:.2f}`  \n"
-                f"Why: {match.explanation}"
-            )
+            st.markdown(f"**{rank}. {match.code} – {match.description}**  \nSimilarity: `{match.similarity:.2f}`")
 
 
 if __name__ == "__main__":

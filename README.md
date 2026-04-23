@@ -11,7 +11,6 @@ TenderAlign AI is a lightweight Streamlit app that maps tender text to the **top
   - Similarity score (0-1)
 - If the tender text already contains valid CPV codes from the dataset, those codes are prioritized in results
 - CPV detection supports `########-#`, compact `#########`, and 8-digit stems `########` (validated against known CPV dataset codes)
-- Text-mentioned `########-#` and `########` values can also be suggested directly when their 4-digit parent CPV group (`XXXX0000-#`) exists in the loaded list
 - In-memory CPV embeddings generated once at app startup
 - Fast retrieval suitable for hundreds to thousands of CPV rows
 
@@ -62,7 +61,6 @@ If codes mentioned in tenders are missing from your CSV, the app will notify you
 4. Computes cosine similarity
 5. Prioritizes CPV codes explicitly found in the tender text
 6. Fills remaining slots by cosine-similarity ranking to return top 3 results
-7. Adds a short explanation for each result (text-found + parent validation, or semantic similarity)
 
 ## Notes
 
