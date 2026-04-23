@@ -30,6 +30,13 @@ def load_model() -> SentenceTransformer:
 @st.cache_data(show_spinner=False)
 def load_cpv_data(csv_path: str) -> pd.DataFrame:
     df = pd.read_csv(csv_path)
+    required = {"code", "description"}
+    if not required.issubset(df.columns):
+        raise ValueError("CSV must contain columns: code, description")
+
+    df = df[["code", "description"]].dropna().reset_index(drop=True)
+    df["code"] = df["code"].astype(str)
+    df["description"] = df["description"].astype(str)
     required_columns = {"code", "description"}
     if not required_columns.issubset(df.columns):
         raise ValueError("CSV must contain columns: code, description")
@@ -43,12 +50,33 @@ def load_cpv_data(csv_path: str) -> pd.DataFrame:
 @st.cache_resource(show_spinner=False)
 def build_cpv_embeddings(descriptions: List[str]) -> np.ndarray:
     model = load_model()
+    return model.encode(
     embeddings = model.encode(
         descriptions,
         convert_to_numpy=True,
         normalize_embeddings=True,
         show_progress_bar=False,
     )
+
+
+def extract_raw_cpv_mentions(tender_text: str) -> set[str]:
+    canonical_mentions = set(re.findall(r"\b\d{8}-\d\b", tender_text))
+    compact_mentions = {f"{c[:8]}-{c[8]}" for c in re.findall(r"\b\d{9}\b", tender_text)}
+    return canonical_mentions | compact_mentions
+
+
+def extract_cpv_stems(tender_text: str) -> set[str]:
+    return set(re.findall(r"\b\d{8}\b", tender_text))
+
+
+def extract_mentioned_cpv_codes(tender_text: str, cpv_df: pd.DataFrame) -> List[str]:
+    known_codes = set(cpv_df["code"].tolist())
+    stem_to_code = {code.split("-")[0]: code for code in known_codes}
+
+    explicit = extract_raw_cpv_mentions(tender_text)
+    explicit.update({stem_to_code[s] for s in extract_cpv_stems(tender_text) if s in stem_to_code})
+
+    return sorted(code for code in explicit if code in known_codes)
     return embeddings
 
 
@@ -139,6 +167,12 @@ def find_top_matches(
     )[0]
 
     scores = cpv_embeddings @ query_embedding
+    sorted_indices = np.argsort(scores)[::-1]
+
+    mentioned_codes = extract_mentioned_cpv_codes(tender_text, cpv_df)
+    used_codes = set()
+    results: List[MatchResult] = []
+
     top_indices = np.argsort(scores)[::-1]
 
     mentioned_codes = extract_mentioned_cpv_codes(tender_text, cpv_df)
@@ -159,6 +193,7 @@ def find_top_matches(
         if len(results) == top_k:
             return results
 
+    for idx in sorted_indices:
     # Fill remaining slots with semantic matches.
     for idx in top_indices:
         code = cpv_df.iloc[idx]["code"]
@@ -202,6 +237,7 @@ def main() -> None:
         cpv_df = load_cpv_data(str(csv_path))
         cpv_embeddings = build_cpv_embeddings(cpv_df["description"].tolist())
 
+    tender_text = st.text_area("Tender Text", placeholder="Paste tender text here...", height=220)
     tender_text = st.text_area(
         "Tender Text",
         placeholder="Paste tender text here...",
@@ -220,6 +256,7 @@ def main() -> None:
         known_codes = set(cpv_df["code"].tolist())
         known_stems = {code.split("-")[0] for code in known_codes}
         missing_mentions = sorted(code for code in raw_mentions if code not in known_codes)
+        missing_mentions.extend(f"{stem}-?" for stem in sorted(raw_stems - known_stems))
         missing_stems = sorted(stem for stem in raw_stems if stem not in known_stems)
         missing_mentions.extend(f"{stem}-?" for stem in missing_stems)
 
@@ -234,6 +271,9 @@ def main() -> None:
                 + ". Consider loading the full CPV list."
             )
 
+        st.subheader("Top Matches")
+        for rank, match in enumerate(matches, start=1):
+            st.markdown(f"**{rank}. {match.code} – {match.description}**  \nSimilarity: `{match.similarity:.2f}`")
         with st.spinner("Finding best CPV matches..."):
             matches = find_top_matches(tender_text, cpv_df, cpv_embeddings, top_k=3)
 
