@@ -10,6 +10,7 @@ TenderAlign AI is a lightweight Streamlit app that maps tender text to the **top
   - CPV description
   - Similarity score (0-1)
 - If the tender text already contains valid CPV codes from the dataset, those codes are prioritized in results
+- CPV detection supports `########-#`, compact `#########`, and 8-digit stems `########` (validated against known CPV dataset codes)
 - In-memory CPV embeddings generated once at app startup
 - Fast retrieval suitable for hundreds to thousands of CPV rows
 
