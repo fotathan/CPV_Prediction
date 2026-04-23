@@ -1,4 +1,5 @@
 import logging
+import re
 from dataclasses import dataclass
 from pathlib import Path
 from typing import List
@@ -51,6 +52,22 @@ def build_cpv_embeddings(descriptions: List[str]) -> np.ndarray:
     return embeddings
 
 
+def extract_mentioned_cpv_codes(tender_text: str, cpv_df: pd.DataFrame) -> List[str]:
+    """Extract CPV codes explicitly mentioned in the tender text."""
+    known_codes = set(cpv_df["code"].tolist())
+
+    # Match canonical CPV format: 8 digits + '-' + check digit (e.g. 15900000-7)
+    explicit = set(re.findall(r"\b\d{8}-\d\b", tender_text))
+
+    # Match compact format and normalize to canonical form if it exists in dataset
+    compact = re.findall(r"\b\d{9}\b", tender_text)
+    for code in compact:
+        normalized = f"{code[:8]}-{code[8]}"
+        explicit.add(normalized)
+
+    return [code for code in explicit if code in known_codes]
+
+
 def find_top_matches(
     tender_text: str,
     cpv_df: pd.DataFrame,
@@ -66,6 +83,41 @@ def find_top_matches(
     )[0]
 
     scores = cpv_embeddings @ query_embedding
+    top_indices = np.argsort(scores)[::-1]
+
+    mentioned_codes = extract_mentioned_cpv_codes(tender_text, cpv_df)
+    results: List[MatchResult] = []
+    used_codes = set()
+
+    # Prioritize explicitly mentioned CPV codes from the tender text.
+    for code in mentioned_codes:
+        idx = cpv_df.index[cpv_df["code"] == code][0]
+        results.append(
+            MatchResult(
+                code=cpv_df.iloc[idx]["code"],
+                description=cpv_df.iloc[idx]["description"],
+                similarity=max(0.99, float(scores[idx])),
+            )
+        )
+        used_codes.add(code)
+        if len(results) == top_k:
+            return results
+
+    # Fill remaining slots with semantic matches.
+    for idx in top_indices:
+        code = cpv_df.iloc[idx]["code"]
+        if code in used_codes:
+            continue
+        results.append(
+            MatchResult(
+                code=code,
+                description=cpv_df.iloc[idx]["description"],
+                similarity=float(scores[idx]),
+            )
+        )
+        if len(results) == top_k:
+            break
+
     top_indices = np.argsort(scores)[-top_k:][::-1]
 
     results = [
@@ -119,6 +171,9 @@ def main() -> None:
 
         with st.expander("Why these matches?"):
             st.write(
+                "If CPV codes are explicitly mentioned in the tender text, they are prioritized. "
+                "Remaining matches are selected by cosine similarity between the tender embedding "
+                "and CPV description embeddings."
                 "Matches are selected by cosine similarity between the tender embedding and "
                 "CPV description embeddings. Higher score means stronger semantic alignment."
             )
