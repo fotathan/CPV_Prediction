@@ -51,6 +51,7 @@ The app expects a CSV at `data/cpv_sample.csv` with columns:
 - `description` (example: `Beverages tobacco and related products`)
 
 You can replace the sample file with your full CPV list.
+If codes mentioned in tenders are missing from your CSV, the app will notify you.
 
 ## How it works
 

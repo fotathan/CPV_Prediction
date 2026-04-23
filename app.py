@@ -53,6 +53,7 @@ def build_cpv_embeddings(descriptions: List[str]) -> np.ndarray:
 
 
 def extract_mentioned_cpv_codes(tender_text: str, cpv_df: pd.DataFrame) -> List[str]:
+    """Extract valid, known CPV codes explicitly mentioned in the tender text."""
     """Extract CPV codes explicitly mentioned in the tender text."""
     known_codes = set(cpv_df["code"].tolist())
     stem_to_codes: dict[str, List[str]] = {}
@@ -60,6 +61,8 @@ def extract_mentioned_cpv_codes(tender_text: str, cpv_df: pd.DataFrame) -> List[
         stem = code.split("-")[0]
         stem_to_codes.setdefault(stem, []).append(code)
 
+    explicit = extract_raw_cpv_mentions(tender_text)
+    for stem in extract_cpv_stems(tender_text):
     # Match canonical CPV format: 8 digits + '-' + check digit (e.g. 15900000-7)
     explicit = set(re.findall(r"\b\d{8}-\d\b", tender_text))
 
@@ -77,6 +80,25 @@ def extract_mentioned_cpv_codes(tender_text: str, cpv_df: pd.DataFrame) -> List[
             explicit.add(candidates[0])
 
     return [code for code in explicit if code in known_codes]
+
+
+def extract_raw_cpv_mentions(tender_text: str) -> set[str]:
+    """Extract CPV-like mentions from tender text and normalize to canonical style."""
+    explicit: set[str] = set()
+
+    # Canonical CPV format: 8 digits + '-' + check digit (e.g. 15900000-7)
+    explicit.update(re.findall(r"\b\d{8}-\d\b", tender_text))
+
+    # Compact format (#########), normalize to ########-#
+    for code in re.findall(r"\b\d{9}\b", tender_text):
+        explicit.add(f"{code[:8]}-{code[8]}")
+
+    return explicit
+
+
+def extract_cpv_stems(tender_text: str) -> set[str]:
+    """Extract 8-digit CPV stems (########) from tender text."""
+    return set(re.findall(r"\b\d{8}\b", tender_text))
 
 
 def find_top_matches(
@@ -169,6 +191,25 @@ def main() -> None:
             return
 
         logger.info("Received tender query of %s characters", len(tender_text))
+
+        raw_mentions = extract_raw_cpv_mentions(tender_text)
+        raw_stems = extract_cpv_stems(tender_text)
+        known_codes = set(cpv_df["code"].tolist())
+        known_stems = {code.split("-")[0] for code in known_codes}
+        missing_mentions = sorted(code for code in raw_mentions if code not in known_codes)
+        missing_stems = sorted(stem for stem in raw_stems if stem not in known_stems)
+        missing_mentions.extend(f"{stem}-?" for stem in missing_stems)
+
+        with st.spinner("Finding best CPV matches..."):
+            matches = find_top_matches(tender_text, cpv_df, cpv_embeddings, top_k=3)
+
+        if missing_mentions:
+            st.info(
+                "Detected CPV-like mentions not found in the loaded CSV: "
+                + ", ".join(missing_mentions[:5])
+                + (" ..." if len(missing_mentions) > 5 else "")
+                + ". Consider loading the full CPV list."
+            )
 
         with st.spinner("Finding best CPV matches..."):
             matches = find_top_matches(tender_text, cpv_df, cpv_embeddings, top_k=3)
